@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	i := 1
-	for i <= 50 {
+	for i := 1; i <= 50; i++ {
 		if i%3 == 0 && i%5 == 0 {
 			fmt.Println("FizzBuzz")
 		} else if i%3 == 0 {
@@ -14,6 +13,5 @@ func main() {
 		} else {
 			fmt.Println(i)
 		}
-		i++
 	}
 }
