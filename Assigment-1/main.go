@@ -16,6 +16,7 @@ type Data struct {
 
 func main() {
 	data := []Data{
+		{},
 		{"Leonardo Siagian", "Bandung", "Back End Engineer", "Tertarik dengan golang"},
 		{"Dhandy Muham", "Jakarta", "UI/UX Engineer", "Mudah"},
 		{"Vicktor Lambok Desrony", "Medan", "Front End Engineer", "Simple"},
@@ -34,24 +35,25 @@ func main() {
 	}
 	flag.Parse()
 	s := flag.Arg(0)
-	// string to int
 	index, err := strconv.Atoi(s)
 	if err != nil {
 		fmt.Println("Please INput Number")
 		os.Exit(0)
 	}
-	result, success := getData(data, index)
+	result, success := getData(&data, index)
 	if success {
-		fmt.Println(result)
+		fmt.Print(result)
 	} else {
 		fmt.Println("Data Not Found")
 	}
 }
 
-func getData(data []Data, index int) (string, bool) {
-	for i, v := range data {
-		if i == index {
-			return fmt.Sprintf("Nama\t\t: %s\nAlamat\t\t: %s\nPekerjaan\t: %s\nAlamat\t\t: %s\n", v.Nama, v.Alamat, v.Pekerjaan, v.Alasan), true
+func getData(data *[]Data, index int) (string, bool) {
+	if index > 0 {
+		for i, v := range *data {
+			if i == index {
+				return fmt.Sprintf("Nama\t\t: %s\nAlamat\t\t: %s\nPekerjaan\t: %s\nAlamat\t\t: %s\n", v.Nama, v.Alamat, v.Pekerjaan, v.Alasan), true
+			}
 		}
 	}
 	return "", false
