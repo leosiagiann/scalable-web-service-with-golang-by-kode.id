@@ -12,7 +12,7 @@ func main() {
 		return true
 	}
 
-	nums := []int{10, 13, 11, 5, 20, 27, 30, 35, 40, 45, 50, 97}
+	nums := []int{10, 13, 11, 5, 20, 27, 30, 35, 40, 45, 67, 97}
 	totalPrime := test(nums, isPrime)
 	fmt.Println(totalPrime)
 }
