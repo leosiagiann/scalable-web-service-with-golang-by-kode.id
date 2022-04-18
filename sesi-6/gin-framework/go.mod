@@ -1,4 +1,4 @@
-module git-framework
+module gin-framework
 
 go 1.18
 

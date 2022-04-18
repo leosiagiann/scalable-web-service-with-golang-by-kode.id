@@ -1,7 +1,9 @@
 package main
 
-func main() 
-	port := ":9999"
+import "gin-framework/routers"
 
-	router.StartServer().Run(port)
+func main() {
+	var PORT = ":8080"
+
+	routers.StartServer().Run(PORT)
 }
