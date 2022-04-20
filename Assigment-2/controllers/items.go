@@ -19,6 +19,15 @@ func NewControllerItem(db *gorm.DB) *InDBI {
 	}
 }
 
+// @Summary get all item
+// @Description get all item
+// @Tags item
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} models.Item
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /items/{itemId} [get]
 func (in *InDBI) GetItem(c *gin.Context) {
 	var (
 		item   []models.Item
@@ -46,6 +55,16 @@ func (in *InDBI) GetItem(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// @Summary add a new item
+// @Description add a new item
+// @Tags item
+// @Accept  json
+// @Produce  json
+// @Param item body models.Item true "item"
+// @Success 200 {object} models.Item
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /items [post]
 func (in *InDBI) CreateItem(c *gin.Context) {
 	var item models.Item
 
@@ -70,6 +89,16 @@ func (in *InDBI) CreateItem(c *gin.Context) {
 	})
 }
 
+// @Summary update a new item
+// @Description update a new item
+// @Tags item
+// @Accept  json
+// @Produce  json
+// @Param item body models.Item true "item"
+// @Success 200 {object} models.Item
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /items/{itemId} [put]
 func (in *InDBI) UpdateItem(c *gin.Context) {
 	var (
 		item    models.Item
@@ -106,6 +135,16 @@ func (in *InDBI) UpdateItem(c *gin.Context) {
 	})
 }
 
+// @Summary delete a new item
+// @Description delete a new item
+// @Tags item
+// @Accept  json
+// @Produce  json
+// @Param item body models.Item true "item"
+// @Success 200 {object} models.Item
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /items/{itemId} [delete]
 func (in *InDBI) DeleteItem(c *gin.Context) {
 	var (
 		item models.Item

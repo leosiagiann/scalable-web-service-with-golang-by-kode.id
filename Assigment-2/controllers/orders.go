@@ -19,6 +19,15 @@ func NewControllerOrder(db *gorm.DB) *InDB {
 	}
 }
 
+// @Summary get all order
+// @Description get all order
+// @Tags order
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} models.Order
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /orders/{orderId} [get]
 func (in *InDB) GetOrder(c *gin.Context) {
 	var (
 		order  []models.Order
@@ -46,6 +55,16 @@ func (in *InDB) GetOrder(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// @Summary create a new order
+// @Description create a new order
+// @Tags order
+// @Accept  json
+// @Produce  json
+// @Param order body models.Order true "order"
+// @Success 200 {object} models.Order
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /orders [post]
 func (in *InDB) CreateOrder(c *gin.Context) {
 	var order models.Order
 
@@ -70,6 +89,16 @@ func (in *InDB) CreateOrder(c *gin.Context) {
 	})
 }
 
+// @Summary update a new order
+// @Description update a new order
+// @Tags order
+// @Accept  json
+// @Produce  json
+// @Param order body models.Order true "order"
+// @Success 200 {object} models.Order
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /orders/{orderId} [put]
 func (in *InDB) UpdateOrder(c *gin.Context) {
 	var (
 		order    models.Order
@@ -106,6 +135,16 @@ func (in *InDB) UpdateOrder(c *gin.Context) {
 	})
 }
 
+// @Summary delete a new order
+// @Description delete a new order
+// @Tags order
+// @Accept  json
+// @Produce  json
+// @Param order body models.Order true "order"
+// @Success 200 {object} models.Order
+// @Failure 400 {object} gin.H
+// @Failure 404 {object} gin.H
+// @Router /orders/{orderId} [delete]
 func (in *InDB) DeleteOrder(c *gin.Context) {
 	var (
 		order models.Order
